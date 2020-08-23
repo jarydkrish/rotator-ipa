@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Do not recompile assets in production
+  config.assets.compile = false
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
