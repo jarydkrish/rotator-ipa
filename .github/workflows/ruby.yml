@@ -29,5 +29,12 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
+    - name: Setup database
+      env:
+        DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
+        RAILS_ENV: test
+      run: |
+        bundle exec rails db:setup
+        bundle exec rails db:migrate
     - name: Run tests
       run: bundle exec rails test
