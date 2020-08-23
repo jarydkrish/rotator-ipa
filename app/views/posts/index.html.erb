@@ -1,0 +1,11 @@
+<ul>
+<% @posts.each do |post|  %>
+  <li>
+    <a href="<%= post_path(post) %>">
+      <%= post.title %>
+    </a>
+  </li>
+<% end %>
+</ul>
+
+<%= paginate @posts %>

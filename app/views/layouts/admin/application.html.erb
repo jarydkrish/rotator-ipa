@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    <%= content_for(:title) %>
+  </title>
+  <%= stylesheet_packs_with_chunks_tag 'application', 'administrate', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_packs_with_chunks_tag 'application', 'administrate', 'data-turbolinks-track': 'reload' %>
+  <%= render "stylesheet" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "icons" %>
+
+  <div class="app-container">
+    <%= render "navigation" -%>
+
+    <main class="main-content" role="main">
+      <%= render "flashes" -%>
+      <%= yield %>
+    </main>
+  </div>
+
+  <%= render "javascript" %>
+</body>
+</html>
