@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
 
   devise_for :users
-  namespace :admin do
-    # Add dashboard for your models here
-    resources :posts
-    resources :users
 
-    root to: "users#index" # <--- Root route
+  authorize :users do
+    namespace :admin do
+      # Add dashboard for your models here
+      resources :posts
+      resources :users
+
+      root to: "users#index" # <--- Root route
+    end
   end
 end
