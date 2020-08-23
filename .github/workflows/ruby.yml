@@ -1,0 +1,78 @@
+# Runs our test suite via Github Actions
+
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:12
+        ports: ['5432:5432']
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    # Node and Yarn Deps
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.16.3
+    - name: Find yarn cache location
+      id: yarn-cache
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - name: Load JS Cache
+      uses: actions/cache@v1
+      with:
+        path: ${{ steps.yarn-cache.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Yarn install
+      run: |
+        yarn install --pure-lockfile
+    # Test setup
+    - name: Setup database
+      env:
+        DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
+        RAILS_ENV: test
+      run: |
+        bundle exec rails db:setup
+        bundle exec rails db:migrate
+    - name: Setup assets cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          public/packs-test
+          tmp/cache/assets
+        key: ${{ runner.os }}-assets
+        restore-keys: |
+          ${{ runner.os }}-assets
+    - name: Setup assets
+      env:
+        RAILS_ENV: test
+      run: |
+        bundle exec rails assets:precompile assets:clean
+    # Actually run all the tests
+    - name: Run tests
+      env:
+        DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
+        RAILS_ENV: test
+      run: bundle exec rails test
