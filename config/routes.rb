@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  namespace :api do
+    resource :beer, only: [:create]
+  end
+
   namespace :admin do
     resources :posts
     resources :users
