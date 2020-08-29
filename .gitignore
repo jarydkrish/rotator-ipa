@@ -36,4 +36,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .rbenv-vars
+.nodenv-vars
 /vendor/bundle
