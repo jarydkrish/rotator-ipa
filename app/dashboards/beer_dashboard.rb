@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PostDashboard < Administrate::BaseDashboard
+class BeerDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,18 @@ class PostDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    beer_daily_data_points: Field::HasMany,
+    beer_hourly_data_points: Field::HasMany,
+    rich_text_recipe: Field::HasOne,
     id: Field::Number,
-    published_at: Field::DateTime,
-    published: Field::Boolean,
-    title: Field::Text,
-    description: Field::Text,
-    page_title: Field::Text,
-    page_description: Field::Text,
+    start_date: Field::Date,
+    bottle_date: Field::Date,
+    ready_date: Field::Date,
+    name: Field::String,
+    kind: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    content: ::RichTextAreaField,
+    recipe: ::RichTextAreaField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,37 +29,39 @@ class PostDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    published_at
-    published
-    title
+    kind
+    name
+    start_date
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
+    name
+    kind
+    start_date
+    bottle_date
+    ready_date
+    recipe
+    beer_daily_data_points
+    beer_hourly_data_points
     created_at
     updated_at
-    content
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
-    content
+    name
+    kind
+    recipe
+    start_date
+    bottle_date
+    ready_date
+    beer_daily_data_points
+    beer_hourly_data_points
   ].freeze
 
   # COLLECTION_FILTERS
@@ -70,14 +74,12 @@ class PostDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {
-    published: ->(resources) { resources.where(published: true) }
-  }.freeze
+  COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how posts are displayed
+  # Overwrite this method to customize how beers are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(post)
-  #   "Post ##{post.id}"
-  # end
+  def display_resource(beer)
+    beer.name
+  end
 end

@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PostDashboard < Administrate::BaseDashboard
+class BeerDailyDataPointDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,16 +8,17 @@ class PostDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    beer: Field::BelongsTo,
     id: Field::Number,
-    published_at: Field::DateTime,
-    published: Field::Boolean,
-    title: Field::Text,
-    description: Field::Text,
-    page_title: Field::Text,
-    page_description: Field::Text,
+    date: Field::Date,
+    min_temperature: Field::String.with_options(searchable: false),
+    max_temperature: Field::String.with_options(searchable: false),
+    avg_temperature: Field::String.with_options(searchable: false),
+    max_specific_gravity: Field::String.with_options(searchable: false),
+    min_specific_gravity: Field::String.with_options(searchable: false),
+    avg_specific_gravity: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-    content: ::RichTextAreaField,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,37 +28,38 @@ class PostDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    published_at
-    published
-    title
+    date
+    beer
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
+    beer
     id
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
+    date
+    min_temperature
+    max_temperature
+    avg_temperature
+    max_specific_gravity
+    min_specific_gravity
+    avg_specific_gravity
     created_at
     updated_at
-    content
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
-    content
+    beer
+    date
+    min_temperature
+    max_temperature
+    avg_temperature
+    max_specific_gravity
+    min_specific_gravity
+    avg_specific_gravity
   ].freeze
 
   # COLLECTION_FILTERS
@@ -71,13 +73,13 @@ class PostDashboard < Administrate::BaseDashboard
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {
-    published: ->(resources) { resources.where(published: true) }
+    beer: ->(resources) { resources.where(beer: beer) }
   }.freeze
 
-  # Overwrite this method to customize how posts are displayed
+  # Overwrite this method to customize how beer daily data points are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(post)
-  #   "Post ##{post.id}"
-  # end
+  def display_resource(beer_daily_data_point)
+    "#{beer_daily_data_point.beer.name} #{beer_daily_data_point.date}"
+  end
 end
