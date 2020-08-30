@@ -55,11 +55,14 @@ Rails.application.configure do
   # Use a different cache store in production.
   config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
 
-  # Use a real queuing backend for Active Job (and separate queues per environment).
-  # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "rotator_ipa_production"
-
+  # Cache when using action mailer
   config.action_mailer.perform_caching = false
+
+  # Action mailer configuration
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch('HOST', "#{ENV['HEROKU_APP_NAME']}.herokuapp.com")
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
