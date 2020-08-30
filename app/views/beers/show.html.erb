@@ -1,5 +1,6 @@
 <%= render partial: 'beers/header' %>
 
+<% cache @beer do %>
 <div class="relative pb-16 bg-white overflow-hidden">
   <div class="relative px-4 sm:px-6 lg:px-8">
     <div class="text-lg max-w-prose mx-auto mb-6">
@@ -58,5 +59,6 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <%= render partial: 'pages/footer' %>
