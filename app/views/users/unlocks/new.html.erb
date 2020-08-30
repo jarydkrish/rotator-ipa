@@ -1,4 +1,6 @@
-<h2>Resend unlock instructions</h2>
+<h2 class="my-6 text-3xl leading-9 font-extrabold text-gray-900">
+  Resend unlock instructions
+</h2>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>

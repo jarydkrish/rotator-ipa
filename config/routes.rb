@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :posts, only: [:index, :show]
 
-  devise_for :users, except: [:registrations]
+  devise_for :users, skip: [:registrations]
 
   namespace :api do
     resource :beer, only: [:create]
