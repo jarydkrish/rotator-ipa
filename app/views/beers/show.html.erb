@@ -46,10 +46,11 @@
       </div>
     </div>
     <div class="max-w-prose mx-auto mb-32">
+      <%= render partial: 'beers/beer_chart', locals: { beer: @beer } %>
+    </div>
+    <div class="max-w-prose mx-auto mb-32">
       <% if @beer.beer_hourly_data_points.size.positive? %>
         <%= render partial: 'beers/beer_hourly_chart', locals: { beer: @beer } %>
-      <% else %>
-        <%= render partial: 'beers/beer_chart', locals: { beer: @beer } %>
       <% end %>
     </div>
     <div class="prose prose-lg text-gray-500 mx-auto">
