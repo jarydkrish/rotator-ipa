@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -7,7 +9,9 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module RotatorIpa
+  # Main application. Powers all the magic
   class Application < Rails::Application
+    config.time_zone = 'Central Time (US & Canada)'
     config.load_defaults 6.0
     config.generators.assets = false
     config.generators.helper = false

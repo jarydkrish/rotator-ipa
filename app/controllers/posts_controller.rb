@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# All the blog posts
 class PostsController < ApplicationController
   before_action :set_posts
 
@@ -12,10 +15,10 @@ class PostsController < ApplicationController
   private
 
   def set_posts
-    if current_user
-      @posts = Post.all.order(published_at: :desc)
-    else
-      @posts = Post.where(published: true).order(published_at: :desc)
-    end
+    @posts = if current_user
+               Post.all.order(published_at: :desc)
+             else
+               Post.where(published: true).order(published_at: :desc)
+             end
   end
 end

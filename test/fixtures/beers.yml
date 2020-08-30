@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+beer_one:
+  start_date: <%= Time.zone.today %>
+  bottle_date: <%= Time.zone.today + 2.weeks %>
+  ready_date: <%= Time.zone.today + 4.weeks %>
+  name: Wheat Peach
+  kind: Wheat
+
+beer_two:
+  start_date: <%= Time.zone.today - 2.weeks %>
+  bottle_date: <%= Time.zone.today %>
+  ready_date: <%= Time.zone.today + 2.weeks %>
+  name: OctoberFest
+  kind: MyString

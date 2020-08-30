@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+daily_data_point_one:
+  beer: beer_one
+  min_temperature: 9.99
+  max_temperature: 9.99
+  avg_temperature: 9.99
+  max_specific_gravity: 9.99
+  min_specific_gravity: 9.99
+  avg_specific_gravity: 9.99
+
+daily_data_point_two:
+  beer: beer_two
+  min_temperature: 9.99
+  max_temperature: 9.99
+  avg_temperature: 9.99
+  max_specific_gravity: 9.99
+  min_specific_gravity: 9.99
+  avg_specific_gravity: 9.99
