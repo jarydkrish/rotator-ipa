@@ -6,6 +6,30 @@ class Beer < ApplicationRecord
   has_many :beer_hourly_data_points, dependent: :destroy
   has_rich_text :recipe
 
+  def hourly_chart_data
+    beer_hourly_data_points.map do |data_point|
+      {
+        'time': data_point.created_at,
+        'temperature': data_point.temperature,
+        'specific_gravity': data_point.specific_gravity
+      }
+    end
+  end
+
+  def most_recent_daily_data_point
+    @most_recent_daily_data_point ||= beer_daily_data_points.last
+  end
+
+  def most_recent_daily_avg_temperature
+    temp = most_recent_daily_data_point&.avg_temperature
+    temp ? "#{temp.round(2)} °F" : 'N/A'
+  end
+
+  def most_recent_daily_avg_specific_gravity
+    gravity = most_recent_daily_data_point&.avg_specific_gravity
+    gravity ? gravity.round(2).to_s : 'N/A'
+  end
+
   def started?
     Time.zone.today > start_date
   end

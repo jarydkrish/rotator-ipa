@@ -4,7 +4,53 @@
   <div class="relative px-4 sm:px-6 lg:px-8">
     <div class="text-lg max-w-prose mx-auto mb-6">
       <h1 class="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-6xl sm:leading-10"><%= @beer.name %></h1>
-      <p class="text-xl text-gray-500 leading-8"><%= @beer.kind %></p>
+    </div>
+    <div class="container mx-auto mb-32">
+      <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="px-4 py-5 sm:p-6">
+            <dl>
+              <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                Beer Type
+              </dt>
+              <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                <%= @beer.kind %>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="px-4 py-5 sm:p-6">
+            <dl>
+              <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                Avg. Temp
+              </dt>
+              <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                <%= @beer.most_recent_daily_avg_temperature  %>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="px-4 py-5 sm:p-6">
+            <dl>
+              <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+                Avg. Specific Gravity
+              </dt>
+              <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+                <%= @beer.most_recent_daily_avg_specific_gravity  %>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-prose mx-auto mb-32">
+      <% if @beer.beer_hourly_data_points.size.positive? %>
+        <%= render partial: 'beers/beer_hourly_chart', locals: { beer: @beer } %>
+      <% else %>
+        <%= render partial: 'beers/beer_chart', locals: { beer: @beer } %>
+      <% end %>
     </div>
     <div class="prose prose-lg text-gray-500 mx-auto">
       <%= @beer.recipe %>

@@ -9,6 +9,7 @@
     <%= stylesheet_packs_with_chunks_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/50025e69ef.js" crossorigin="anonymous"></script>
+    <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= yield :head %>
   </head>
 
@@ -31,6 +32,5 @@
         <%= image_pack_tag 'champ-brewing.png', alt: 'Rotator IPA is the best!', class: 'absolute inset-0 h-full w-full object-cover' %>
       </div>
     </div>
-    <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
