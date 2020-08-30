@@ -1,4 +1,4 @@
-<div class="relative bg-white overflow-hidden" x-data="{ isOpen: false }">
+<div class="relative bg-white" x-data="{ isOpen: false }">
   <div class="max-w-screen-xl mx-auto">
     <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
       <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -20,6 +20,9 @@
                 </button>
               </div>
             </div>
+          </div>
+          <div class="hidden md:block md:ml-10 md:pr-4">
+            <a href="/beers" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Beers</a>
           </div>
           <div class="hidden md:block md:ml-10 md:pr-4">
             <a href="/posts" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Blog</a>
@@ -49,6 +52,9 @@
                   </svg>
                 </button>
               </div>
+            </div>
+            <div class="px-2 pt-2 pb-3">
+              <a href="/beers" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Beers</a>
             </div>
             <div class="px-2 pt-2 pb-3">
               <a href="/posts" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Blog</a>
