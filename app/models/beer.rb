@@ -40,7 +40,8 @@ class Beer < ApplicationRecord
 
   def time_until_ready
     return 0 unless started? && !brewed?
+    return ready_date - bottle_date if started? && !bottled?
 
-    ready_date - bottle_date
+    ready_date - Time.zone.today
   end
 end
