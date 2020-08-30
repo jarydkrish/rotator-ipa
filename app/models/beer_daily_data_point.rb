@@ -2,5 +2,5 @@
 
 # A daily data point summarizing one day's temperature recordings
 class BeerDailyDataPoint < ApplicationRecord
-  belongs_to :beer
+  belongs_to :beer, touch: true
 end
