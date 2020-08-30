@@ -10,7 +10,7 @@ class BeerDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     beer_daily_data_points: Field::HasMany,
     beer_hourly_data_points: Field::HasMany,
-    rich_text_recipe: Field::HasOne,
+    description: Field::Text,
     id: Field::Number,
     start_date: Field::Date,
     bottle_date: Field::Date,
@@ -56,6 +56,7 @@ class BeerDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     name
     kind
+    description
     recipe
     start_date
     bottle_date

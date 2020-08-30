@@ -38,24 +38,24 @@
             <div class="mt-6 flex items-center">
               <div class="flex-shrink-0">
                 <a href="<%= post_url(post) %>">
-                  <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  <img class="h-10 w-10 rounded-full" src="https://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest post.user.email %>" alt="">
                 </a>
               </div>
               <div class="ml-3">
                 <p class="text-sm leading-5 font-medium text-gray-900">
                   <a href="<%= post_url(post) %>" class="hover:underline">
-                    Roel Aufderhar
+                    <%= post.user.name %>
                   </a>
                 </p>
                 <div class="flex text-sm leading-5 text-gray-500">
                   <time datetime="2020-03-16">
-                    Mar 16, 2020
+                    <%= post.published_at.strftime('%d %b') %>
                   </time>
                   <span class="mx-1">
                     &middot;
                   </span>
                   <span>
-                    6 min read
+                    <%= post.reading_time %> min read
                   </span>
                 </div>
               </div>
