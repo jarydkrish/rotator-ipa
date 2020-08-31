@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Users that manage beers
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :posts
   # Include default devise modules. Others available are:
   # :confirmable,  and :omniauthable

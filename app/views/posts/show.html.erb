@@ -1,9 +1,22 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @post.page_title || @post.title %>">
+  <meta property="og:description" content="<%= @post.page_description || @post.description %>">
+  <meta property="og:image" content="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+  <meta property="og:url" content="<%= post_url(@post) %>">
+  <meta name="twitter:title" content="<%= @post.page_title || @post.title %>">
+  <meta name="twitter:description" content="<%= @post.page_description || @post.description %>">
+  <meta name="twitter:image" content="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+  <meta name="twitter:card" content="summary_large_image">
+  <link itemprop="thumbnailUrl" href="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+
+<% end %>
+
 <%= render partial: 'posts/header' %>
 
 <div class="relative pb-16 bg-white overflow-hidden">
   <div class="relative px-4 sm:px-6 lg:px-8">
     <div class="text-lg max-w-prose mx-auto mb-6">
-      <h1 class="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-6xl sm:leading-10"><%= @post.title %></h1>
+      <h1 class="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-6xl sm:leading-none"><%= @post.title %></h1>
       <p class="text-xl text-gray-500 leading-8"><%= @post.description %></p>
     </div>
     <div class="prose prose-lg text-gray-500 mx-auto">

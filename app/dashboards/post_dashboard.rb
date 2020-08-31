@@ -12,6 +12,7 @@ class PostDashboard < Administrate::BaseDashboard
     id: Field::Number,
     published_at: Field::DateTime,
     published: Field::Boolean,
+    unsplash_image_url: Field::String,
     title: Field::Text,
     description: Field::Text,
     page_title: Field::Text,
@@ -39,6 +40,7 @@ class PostDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     user
+    unsplash_image_url
     published_at
     published
     title
@@ -55,6 +57,7 @@ class PostDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     user
+    unsplash_image_url
     published_at
     published
     title

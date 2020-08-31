@@ -1,3 +1,15 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= @beer.name %>">
+  <meta property="og:description" content="<%= @beer.description %>">
+  <meta property="og:image" content="https://rotatoripa.co/rotator-ipa-sharing-icon.png">
+  <meta property="og:url" content="<%= beer_url(@beer) %>">
+  <meta name="twitter:title" content="<%= @beer.name %>">
+  <meta name="twitter:description" content="<%= @beer.description %>">
+  <meta name="twitter:image" content="https://rotatoripa.co/rotator-ipa-sharing-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link itemprop="thumbnailUrl" href="https://rotatoripa.co/rotator-ipa-sharing-icon.png">
+<% end %>
+
 <%= render partial: 'beers/header' %>
 
 <% cache @beer do %>

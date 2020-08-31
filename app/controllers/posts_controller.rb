@@ -6,10 +6,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = @posts.page(params[:page])
+    @title = 'Rotator IPA Blog'
   end
 
   def show
     @post = @posts.find(params[:id])
+    @title = @post.title
   end
 
   private

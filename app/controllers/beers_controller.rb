@@ -6,10 +6,12 @@ class BeersController < ApplicationController
 
   def index
     @beers = @beers.page(params[:page])
+    @title = 'Beers at Rotator IPA'
   end
 
   def show
     @beer = @beers.find(params[:id])
+    @title = @beer.name
   end
 
   private
