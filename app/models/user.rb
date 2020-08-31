@@ -15,6 +15,6 @@ class User < ApplicationRecord
   protected
 
   def extract_ip_from(request)
-    request.headers['X-Forwarded-For'] || request.remote_ip
+    request.headers['X-Forwarded-For'].present? ? request.headers['X-Forwarded-For'] : request.remote_ip
   end
 end

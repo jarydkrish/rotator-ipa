@@ -1,13 +1,13 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= @post.page_title || @post.title %>">
   <meta property="og:description" content="<%= @post.page_description || @post.description %>">
-  <meta property="og:image" content="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+  <meta property="og:image" content="<%= @post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
   <meta property="og:url" content="<%= post_url(@post) %>">
   <meta name="twitter:title" content="<%= @post.page_title || @post.title %>">
   <meta name="twitter:description" content="<%= @post.page_description || @post.description %>">
-  <meta name="twitter:image" content="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+  <meta name="twitter:image" content="<%= @post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
   <meta name="twitter:card" content="summary_large_image">
-  <link itemprop="thumbnailUrl" href="<%= post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
+  <link itemprop="thumbnailUrl" href="<%= @post.unsplash_image_url || 'https://rotatoripa.co/rotator-ipa-sharing-icon.png' %>">
 
 <% end %>
 
