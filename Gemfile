@@ -20,6 +20,7 @@ gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'redis', '~> 4.0'
+gem 'scout_apm'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
