@@ -26,7 +26,20 @@
     .attachment {
       padding: 0 !important;
       max-width: 100% !important;
+
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
+
+    .attachment__name {
+      word-break: break-word;
+    }
+  }
+
+  pre {
+    color: black;
   }
 }
 

@@ -34,14 +34,20 @@ class Beer < ApplicationRecord
   end
 
   def started?
+    return false unless start_date
+
     Time.zone.today > start_date
   end
 
   def bottled?
+    return false unless bottle_date
+
     Time.zone.today > bottle_date
   end
 
   def brewed?
+    return false unless ready_date
+
     Time.zone.today > ready_date
   end
 

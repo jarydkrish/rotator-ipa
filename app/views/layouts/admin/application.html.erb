@@ -7,7 +7,6 @@
   <title>
     <%= content_for(:title) %>
   </title>
-  <%= stylesheet_packs_with_chunks_tag 'application', 'administrate', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_packs_with_chunks_tag 'application', 'administrate', 'data-turbolinks-track': 'reload' %>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>

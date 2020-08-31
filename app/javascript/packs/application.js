@@ -5,6 +5,8 @@ require("channels");
 
 require("alpinejs");
 import '../stylesheets/tailwind.scss';
+import '../stylesheets/trix.scss';
+
 
 import '../images/ipa-logo.png';
 import '../images/champ-brewing.png';
