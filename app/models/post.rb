@@ -12,6 +12,7 @@ class Post < ApplicationRecord
   def reading_time
     words_per_minute = 150
     text = Nokogiri::HTML(content.body.to_html).inner_text
-    (text.scan(/\w+/).length / words_per_minute).to_i
+    minutes = (text.scan(/\w+/).length / words_per_minute).to_i
+    minutes.positive? ? minutes : 1
   end
 end
