@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = @posts.find(params[:id])
+    @post = @posts.friendly.find(params[:id])
     @title = @post.title
   end
 

@@ -2,6 +2,9 @@
 
 # A beer that we are brewing
 class Beer < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :beer_daily_data_points, dependent: :destroy
   has_many :beer_hourly_data_points, dependent: :destroy
   has_rich_text :recipe

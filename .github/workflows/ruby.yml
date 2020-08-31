@@ -61,6 +61,7 @@ jobs:
       with:
         path: |
           public/packs-test
+          public/assets
           tmp/cache/assets
         key: ${{ runner.os }}-assets
         restore-keys: |

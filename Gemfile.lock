@@ -122,6 +122,8 @@ GEM
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
+    friendly_id (5.4.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     good_job (1.2.3)
@@ -292,6 +294,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
+  friendly_id
   good_job
   hiredis
   image_processing (~> 1.2)
