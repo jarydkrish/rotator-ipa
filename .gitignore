@@ -38,3 +38,4 @@ yarn-debug.log*
 .rbenv-vars
 .nodenv-vars
 /vendor/bundle
+.DS_Store
