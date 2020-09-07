@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Rotator IPA",
+    "short_name": "Rotator IPA",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,6 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#000000",
-    "background_color": "#000000",
-    "display": "standalone"
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
 }
