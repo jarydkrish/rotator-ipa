@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <img src="https://rotatoripa.co/rotator-ipa-sharing-icon.png" alt="Rotator IPA"></img>
+  <img src="https://rotatoripa.co/rotator-ipa-sharing-icon.png?v=1" alt="Rotator IPA"></img>
 </div>
 
 ## Getting Started
