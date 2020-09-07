@@ -6,7 +6,7 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def create
-      beer = Beer.where(name: params['Beer']).first_or_create
+      beer = Beer.where(tilt_name: params['Beer']).first_or_create
       beer.beer_hourly_data_points.create!(
         temperature: params['Temp'],
         specific_gravity: params['SG']
