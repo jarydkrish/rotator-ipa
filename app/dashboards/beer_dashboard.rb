@@ -16,6 +16,7 @@ class BeerDashboard < Administrate::BaseDashboard
     bottle_date: Field::Date,
     ready_date: Field::Date,
     name: Field::String,
+    tilt_name: Field::String,
     kind: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -38,6 +39,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    tilt_name
     name
     kind
     start_date
@@ -54,6 +56,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    tilt_name
     name
     kind
     description
