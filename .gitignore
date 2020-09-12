@@ -39,3 +39,4 @@ yarn-debug.log*
 .nodenv-vars
 /vendor/bundle
 .DS_Store
+latest.dump
