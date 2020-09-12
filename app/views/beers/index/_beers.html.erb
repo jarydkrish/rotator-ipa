@@ -1,7 +1,7 @@
 <div class="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
   <% beers.each do |beer|  %>
     <% cache beer, expires_in: 8.hours do %>
-      <%= render partial: 'beers/beer', locals: { beer: beer } %>
+      <%= render partial: 'beers/index/beer', locals: { beer: beer } %>
     <% end %>
   <% end %>
 </div>
