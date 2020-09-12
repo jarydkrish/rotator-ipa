@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = @posts.friendly.find(params[:id])
+    @posts = @posts.where.not(id: @post.id).first(3)
     @title = @post.title
   end
 

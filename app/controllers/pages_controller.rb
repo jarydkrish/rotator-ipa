@@ -4,5 +4,6 @@
 class PagesController < ApplicationController
   def home
     @beers = Beer.order(start_date: :desc).first(3)
+    @posts = Post.where(published: true).order(published_at: :desc).first(3)
   end
 end

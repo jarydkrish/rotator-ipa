@@ -19,4 +19,8 @@
 
 <%= render partial: 'pages/home/content' %>
 
+<div class="relative max-w-7xl mx-auto">
+  <%= render partial: 'posts/index/posts', locals: { posts: @posts } %>
+</div>
+
 <%= render partial: 'pages/footer' %>
