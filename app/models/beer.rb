@@ -33,6 +33,28 @@ class Beer < ApplicationRecord
     gravity ? gravity.round(2).to_s : 'N/A'
   end
 
+  def earliest_daily_data_point
+    @earliest_daily_data_point ||= beer_daily_data_points.first
+  end
+
+  def earliest_daily_avg_temperature
+    temp = earliest_daily_data_point&.avg_temperature
+    temp ? "#{temp.round(2)} °F" : 'N/A'
+  end
+
+  def earliest_daily_avg_specific_gravity
+    gravity = earliest_daily_data_point&.avg_specific_gravity
+    gravity ? gravity.round(2).to_s : 'N/A'
+  end
+
+  def current_alcohol_content
+    return 0 unless beer_daily_data_points.size.positive?
+    return 0 if most_recent_daily_data_point == earliest_daily_data_point
+
+    gravity_diff = earliest_daily_data_point.avg_specific_gravity - most_recent_daily_data_point.avg_specific_gravity
+    gravity_diff * 131.25
+  end
+
   def started?
     return false unless start_date
 

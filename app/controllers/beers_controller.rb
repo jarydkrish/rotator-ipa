@@ -2,7 +2,7 @@
 
 # Beers that we are brewing
 class BeersController < ApplicationController
-  before_action :set_posts
+  before_action :set_beers
 
   def index
     @beers = @beers.page(params[:page])
@@ -11,12 +11,13 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.friendly.find(params[:id])
+    @beers = @beers.last(3)
     @title = @beer.name
   end
 
   private
 
-  def set_posts
+  def set_beers
     @beers = Beer.all.order(start_date: :desc)
   end
 end

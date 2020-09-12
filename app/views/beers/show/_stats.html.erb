@@ -1,0 +1,40 @@
+<div class="container mx-auto mb-32">
+  <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <dl>
+          <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+            Beer Type
+          </dt>
+          <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+            <%= beer.kind %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <dl>
+          <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+            Avg. Temp
+          </dt>
+          <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+            <%= beer.most_recent_daily_avg_temperature  %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="px-4 py-5 sm:p-6">
+        <dl>
+          <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
+            Avg. Specific Gravity
+          </dt>
+          <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
+            <%= beer.most_recent_daily_avg_specific_gravity  %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
