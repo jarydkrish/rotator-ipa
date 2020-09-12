@@ -81,7 +81,8 @@ class Beer < ApplicationRecord
   end
 
   def time_until_bottle
-    return 0 unless started? && !bottled?
+    return bottle_date - start_date unless started?
+    return 0 if bottled?
 
     bottle_date - Time.zone.today
   end
@@ -94,8 +95,8 @@ class Beer < ApplicationRecord
   end
 
   def time_until_ready
-    return 0 unless started? && !brewed?
-    return ready_date - bottle_date if started? && !bottled?
+    return ready_date - bottle_date unless bottled?
+    return 0 if brewed?
 
     ready_date - Time.zone.today
   end
