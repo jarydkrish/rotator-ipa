@@ -30,7 +30,7 @@ class Beer < ApplicationRecord
 
   def most_recent_daily_avg_specific_gravity
     gravity = most_recent_daily_data_point&.avg_specific_gravity
-    gravity ? gravity.round(2).to_s : 'N/A'
+    gravity ? gravity.round(3).to_s : 'N/A'
   end
 
   def earliest_daily_data_point
@@ -44,7 +44,7 @@ class Beer < ApplicationRecord
 
   def earliest_daily_avg_specific_gravity
     gravity = earliest_daily_data_point&.avg_specific_gravity
-    gravity ? gravity.round(2).to_s : 'N/A'
+    gravity ? gravity.round(3).to_s : 'N/A'
   end
 
   def current_alcohol_content
