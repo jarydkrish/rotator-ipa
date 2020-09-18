@@ -13,7 +13,7 @@ class BeerTest < ActiveSupport::TestCase
     )
     assert_equal beer.earliest_daily_data_point, daily_data_point
     assert_equal beer.earliest_daily_avg_temperature, "#{daily_data_point.avg_temperature.round(2)} °F"
-    assert_equal beer.earliest_daily_avg_specific_gravity, daily_data_point.avg_specific_gravity.round(2).to_s
+    assert_equal beer.earliest_daily_avg_specific_gravity, daily_data_point.avg_specific_gravity.round(3).to_s
   end
 
   test 'most recent daily measurement values' do
@@ -28,7 +28,7 @@ class BeerTest < ActiveSupport::TestCase
     )
     assert_equal beer.most_recent_daily_data_point, daily_data_point
     assert_equal beer.most_recent_daily_avg_temperature, "#{daily_data_point.avg_temperature.round(2)} °F"
-    assert_equal beer.most_recent_daily_avg_specific_gravity, daily_data_point.avg_specific_gravity.round(2).to_s
+    assert_equal beer.most_recent_daily_avg_specific_gravity, daily_data_point.avg_specific_gravity.round(3).to_s
   end
 
   test 'current_alcohol_content' do
