@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'administrate'
 gem 'administrate-field-active_storage'
 gem 'aws-sdk-s3', require: false
+gem 'barnes'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
