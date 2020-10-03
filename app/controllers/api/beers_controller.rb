@@ -7,9 +7,11 @@ module Api
 
     def create
       beer = Beer.where(tilt_name: params['Beer']).first_or_create
+      hydrometer = Hydrometer.where(name: params['Color']).first_or_create
       beer.beer_hourly_data_points.create!(
         temperature: params['Temp'],
-        specific_gravity: params['SG']
+        specific_gravity: params['SG'],
+        hydrometer: hydrometer
       )
       render json: { created: true }
     end

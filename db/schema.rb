@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_205348) do
+ActiveRecord::Schema.define(version: 2020_10_03_183213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -67,7 +67,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_205348) do
     t.decimal "specific_gravity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hydrometer_id"
     t.index ["beer_id"], name: "index_beer_hourly_data_points_on_beer_id"
+    t.index ["hydrometer_id"], name: "index_beer_hourly_data_points_on_hydrometer_id"
   end
 
   create_table "beers", force: :cascade do |t|
@@ -107,6 +109,12 @@ ActiveRecord::Schema.define(version: 2020_09_07_205348) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["queue_name", "scheduled_at"], name: "index_good_jobs_on_queue_name_and_scheduled_at", where: "(finished_at IS NULL)"
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
+  end
+
+  create_table "hydrometers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -150,5 +158,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_205348) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "beer_daily_data_points", "beers"
   add_foreign_key "beer_hourly_data_points", "beers"
+  add_foreign_key "beer_hourly_data_points", "hydrometers"
   add_foreign_key "posts", "users"
 end
