@@ -11,8 +11,6 @@ Layout/LineLength:
   Max: 100
 Metrics/MethodLength:
   Max: 30
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: never
 Style/WordArray:
   EnforcedStyle: brackets
 Style/RegexpLiteral:
