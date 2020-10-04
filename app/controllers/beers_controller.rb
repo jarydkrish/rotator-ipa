@@ -15,6 +15,11 @@ class BeersController < ApplicationController
     @title = @beer.name
   end
 
+  def show_description
+    @hide_header = true
+    @beer = Beer.friendly.find(params[:id])
+  end
+
   private
 
   def set_beers
