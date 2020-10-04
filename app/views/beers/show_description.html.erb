@@ -1,0 +1,11 @@
+<% content_for :head do %>
+  <link rel="canonical" href="<%= beer_url(@beer) %>">
+<% end %>
+
+<%= render partial: 'beers/header' %>
+
+<% cache @beer, expires_in: 8.hours do %>
+<div class="prose prose-lg text-gray-500 mx-auto">
+  <%= @beer.recipe %>
+</div>
+<% end %>

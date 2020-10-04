@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # For the robots
   get '/sitemap.xml', to: 'pages#sitemap', format: 'xml'
 
-  resources :beers, only: [:index, :show]
+  resources :beers, only: [:index, :show] do
+    member do
+      get 'show_description'
+    end
+  end
   resources :posts, only: [:index, :show]
 
   devise_for :users, skip: [:registrations]
@@ -24,4 +28,6 @@ Rails.application.routes.draw do
     resources :posts
     resources :users
   end
+
+  post '/graphql', to: 'graphql#execute'
 end
