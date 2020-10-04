@@ -1,5 +1,8 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
 
+require 'administrate/base_dashboard'
+
+# Dashboard for beer hourly datapoints
 class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -21,32 +24,16 @@ class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-    id
-    beer
-    temperature
-    specific_gravity
-  ].freeze
+  COLLECTION_ATTRIBUTES = [:id, :beer, :temperature, :specific_gravity].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[
-    id
-    beer
-    temperature
-    specific_gravity
-    created_at
-    updated_at
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = [:id, :beer, :temperature, :specific_gravity, :created_at, :updated_at].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-    beer
-    temperature
-    specific_gravity
-  ].freeze
+  FORM_ATTRIBUTES = [:beer, :temperature, :specific_gravity].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

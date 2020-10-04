@@ -1,5 +1,8 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
 
+require 'administrate/base_dashboard'
+
+# Dashboard for blog posts
 class PostDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -19,7 +22,7 @@ class PostDashboard < Administrate::BaseDashboard
     page_description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    content: ::RichTextAreaField,
+    content: ::RichTextAreaField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,45 +30,17 @@ class PostDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-    id
-    user
-    published_at
-    published
-    title
-  ].freeze
+  COLLECTION_ATTRIBUTES = [:id, :user, :published_at, :published, :title].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[
-    id
-    user
-    unsplash_image_url
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
-    created_at
-    updated_at
-    content
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = [:id, :user, :unsplash_image_url, :published_at, :published, :title, :description, :page_title, :page_description,
+                          :created_at, :updated_at, :content].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-    user
-    unsplash_image_url
-    published_at
-    published
-    title
-    description
-    page_title
-    page_description
-    content
-  ].freeze
+  FORM_ATTRIBUTES = [:user, :unsplash_image_url, :published_at, :published, :title, :description, :page_title, :page_description, :content].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

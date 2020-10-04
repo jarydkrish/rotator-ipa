@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateGoodJobs < ActiveRecord::Migration[6.0]
   def change
     enable_extension 'pgcrypto'
@@ -14,7 +16,7 @@ class CreateGoodJobs < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :good_jobs, :scheduled_at, where: "(finished_at IS NULL)"
-    add_index :good_jobs, [:queue_name, :scheduled_at], where: "(finished_at IS NULL)"
+    add_index :good_jobs, :scheduled_at, where: '(finished_at IS NULL)'
+    add_index :good_jobs, [:queue_name, :scheduled_at], where: '(finished_at IS NULL)'
   end
 end

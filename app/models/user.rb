@@ -3,7 +3,7 @@
 # Users that manage beers
 class User < ApplicationRecord
   has_one_attached :avatar
-  has_many :posts
+  has_many :posts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable,  and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +15,6 @@ class User < ApplicationRecord
   protected
 
   def extract_ip_from(request)
-    request.headers['X-Forwarded-For'].present? ? request.headers['X-Forwarded-For'] : request.remote_ip
+    request.headers['X-Forwarded-For'].presence || request.remote_ip
   end
 end
