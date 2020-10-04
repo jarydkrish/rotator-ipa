@@ -10,7 +10,7 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
 Layout/LineLength:
-  Max: 100
+  Max: 150
 Metrics/MethodLength:
   Max: 30
 Style/WordArray:
