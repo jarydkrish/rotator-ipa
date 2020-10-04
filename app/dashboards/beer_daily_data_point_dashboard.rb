@@ -2,6 +2,7 @@
 
 require 'administrate/base_dashboard'
 
+# Dashboard for beer daily databpoints
 class BeerDailyDataPointDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -32,12 +33,14 @@ class BeerDailyDataPointDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:beer, :id, :date, :min_temperature, :max_temperature, :avg_temperature, :max_specific_gravity, :min_specific_gravity, :avg_specific_gravity, :created_at, :updated_at].freeze
+  SHOW_PAGE_ATTRIBUTES = [:beer, :id, :date, :min_temperature, :max_temperature, :avg_temperature, :max_specific_gravity, :min_specific_gravity,
+                          :avg_specific_gravity, :created_at, :updated_at].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [:beer, :date, :min_temperature, :max_temperature, :avg_temperature, :max_specific_gravity, :min_specific_gravity, :avg_specific_gravity].freeze
+  FORM_ATTRIBUTES = [:beer, :date, :min_temperature, :max_temperature, :avg_temperature, :max_specific_gravity, :min_specific_gravity,
+                     :avg_specific_gravity].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

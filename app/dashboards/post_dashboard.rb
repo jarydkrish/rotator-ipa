@@ -2,6 +2,7 @@
 
 require 'administrate/base_dashboard'
 
+# Dashboard for blog posts
 class PostDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -33,7 +34,8 @@ class PostDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:id, :user, :unsplash_image_url, :published_at, :published, :title, :description, :page_title, :page_description, :created_at, :updated_at, :content].freeze
+  SHOW_PAGE_ATTRIBUTES = [:id, :user, :unsplash_image_url, :published_at, :published, :title, :description, :page_title, :page_description,
+                          :created_at, :updated_at, :content].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed

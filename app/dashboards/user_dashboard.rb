@@ -2,6 +2,7 @@
 
 require 'administrate/base_dashboard'
 
+# Dashboard for admin users
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -40,7 +41,8 @@ class UserDashboard < Administrate::BaseDashboard
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:id, :avatar, :name, :email, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :failed_attempts, :locked_at, :created_at, :updated_at].freeze
+  SHOW_PAGE_ATTRIBUTES = [:id, :avatar, :name, :email, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at,
+                          :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :failed_attempts, :locked_at, :created_at, :updated_at].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed

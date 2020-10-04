@@ -2,6 +2,7 @@
 
 require 'administrate/base_dashboard'
 
+# Dashboard for beer hourly datapoints
 class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.

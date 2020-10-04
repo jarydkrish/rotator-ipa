@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Types
+  # Base mutation
   class MutationType < Types::BaseObject
     # TODO: remove me
     field :test_field, String, null: false,

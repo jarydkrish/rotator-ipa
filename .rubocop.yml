@@ -4,15 +4,23 @@ AllCops:
   NewCops: enable
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
+Metrics/AbcSize:
+  Exclude:
+    - 'db/**/*.rb'
+    - 'test/**/*.rb'
 Metrics/BlockLength:
   Max: 80
   Exclude:
     - '**/*.rake'
-    - 'spec/**/*.rb'
+    - 'test/**/*.rb'
 Layout/LineLength:
   Max: 150
 Metrics/MethodLength:
   Max: 30
+Style/Documentation:
+  Exclude:
+    - 'db/**/*.rb'
+    - 'test/**/*.rb'
 Style/WordArray:
   EnforcedStyle: brackets
 Style/RegexpLiteral:
