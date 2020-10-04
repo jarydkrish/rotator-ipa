@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :assets do
   desc "Remove 'node_modules' folder"
   task rm_node_modules: :environment do
