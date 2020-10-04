@@ -58,6 +58,8 @@ Rails.application.configure do
   # Cache when using action mailer
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.default_url_options = { host: ENV['APP_URL'] }
+
   # Action mailer configuration
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {
@@ -112,3 +114,5 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
+
+Rails.application.routes.default_url_options[:host] = ENV.fetch('APP_URL', 'https://rotatoripa.co')
