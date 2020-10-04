@@ -1,0 +1,21 @@
+require: rubocop-rails
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 80
+  Exclude:
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+Layout/LineLength:
+  Max: 100
+Metrics/MethodLength:
+  Max: 30
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/WordArray:
+  EnforcedStyle: brackets
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
+Style/SymbolArray:
+  EnforcedStyle: brackets
