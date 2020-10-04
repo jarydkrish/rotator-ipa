@@ -10,7 +10,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -77,3 +76,14 @@ jobs:
         DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
         RAILS_ENV: test
       run: bundle exec rails test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    # Actually run all the tests
+    - name: Run linter
+      run: bundle exec rubocop
