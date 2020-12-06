@@ -11,16 +11,10 @@
 
 <%= render partial: 'pages/header' %>
 
-<div class="relative py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-  <div class="relative max-w-7xl mx-auto">
-    <%= render partial: 'beers/index/beers', locals: { beers: @beers } %>
-  </div>
-</div>
+<%= render partial: 'pages/home/beers', locals: { beers: @beers } %>
 
 <%= render partial: 'pages/home/content' %>
 
-<div class="relative max-w-7xl mx-auto">
-  <%= render partial: 'posts/index/posts', locals: { posts: @posts } %>
-</div>
+<%= render partial: 'pages/home/posts', locals: { posts: @posts } %>
 
 <%= render partial: 'pages/footer' %>
