@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
     resources :posts
     resources :users
+    authenticate :user do
+      mount GoodJob::Engine => 'good_job'
+    end
   end
 
   post '/graphql', to: 'graphql#execute'
