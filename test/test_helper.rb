@@ -5,6 +5,12 @@ SimpleCov.start 'rails' do
   add_group 'Dashboards', 'app/dashboards'
   add_group 'Fields', 'app/fields'
   add_group 'GraphQL', 'app/graphql'
+  enable_coverage :branch
+end
+
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
 ENV['RAILS_ENV'] ||= 'test'
