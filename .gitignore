@@ -40,3 +40,4 @@ yarn-debug.log*
 /vendor/bundle
 .DS_Store
 latest.dump
+/coverage

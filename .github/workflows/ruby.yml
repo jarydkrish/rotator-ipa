@@ -76,6 +76,10 @@ jobs:
         DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
         RAILS_ENV: test
       run: bundle exec rails test
+    - name: Upload coverage
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
   lint:
     runs-on: ubuntu-latest
     steps:
