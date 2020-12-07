@@ -75,6 +75,7 @@ jobs:
       env:
         DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/rotator_ipa_test
         RAILS_ENV: test
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: bundle exec rails test
   lint:
     runs-on: ubuntu-latest
