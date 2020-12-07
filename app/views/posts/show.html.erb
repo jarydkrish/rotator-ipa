@@ -25,8 +25,6 @@
   </div>
 </div>
 
-<div class="relative max-w-7xl mx-auto">
-  <%= render partial: 'posts/index/posts', locals: { posts: @posts } %>
-</div>
+<%= render partial: 'posts/show/posts', locals: { posts: @posts } %>
 
 <%= render partial: 'pages/footer' %>
