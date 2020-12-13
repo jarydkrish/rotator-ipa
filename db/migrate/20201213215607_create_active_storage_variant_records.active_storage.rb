@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable all
 # This migration comes from active_storage (originally 20191206030411)
 class CreateActiveStorageVariantRecords < ActiveRecord::Migration[6.0]
   def change
@@ -12,3 +13,4 @@ class CreateActiveStorageVariantRecords < ActiveRecord::Migration[6.0]
     end
   end
 end
+# rubocop:enable all
