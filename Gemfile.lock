@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/jarydkrish/scout_apm_ruby.git
+  revision: 3fe8e9b96d4fa2f4c97f1fab1547ce1284d82c32
+  branch: ruby-3-rails-6-1-support
+  specs:
+    scout_apm (4.0.0)
+      parser
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -275,8 +283,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scout_apm (2.6.9)
-      parser
     selectize-rails (0.12.6)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
@@ -361,7 +367,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rubocop
   rubocop-rails
-  scout_apm
+  scout_apm!
   selenium-webdriver
   simplecov
   spring
