@@ -25,7 +25,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 gem 'rack-cors'
 gem 'redis', '~> 4.0'
-gem 'scout_apm', github: 'scoutapp/scout_apm_ruby', branch: 'ruby-3'
+gem 'scout_apm'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '5.2.1'
 
