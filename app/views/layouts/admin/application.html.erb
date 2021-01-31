@@ -14,10 +14,10 @@
   <title>
     <%= content_for(:title) %>
   </title>
-  <%= javascript_packs_with_chunks_tag 'application', 'administrate', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_packs_with_chunks_tag 'application', media: 'all' %>
   <%= render "stylesheet" %>
-  <%= stylesheet_packs_with_chunks_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
+  <%= javascript_packs_with_chunks_tag 'administrate', defer: true %>
 </head>
 <body>
   <%= render "icons" %>

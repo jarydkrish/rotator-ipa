@@ -25,13 +25,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_packs_with_chunks_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_packs_with_chunks_tag 'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/50025e69ef.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha.2/chart.min.js" integrity="sha512-1crd9mp+UurEwsGEoQOemNumbRc2Ga+vMOj3eN5DjSe4NwjD05O2QfCR5eXQoHBQSLBIrwexE/7Sn5u7zH4cSA==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js" integrity="sha256-OVk2fwTRcXYlVFxr/ECXsakqelJbOg5WCj1dXSIb+nU=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@0.2.2/dist/chartjs-adapter-luxon.min.js" integrity="sha256-bgbnCTiuk9rPHmlLrX1soTSIxQJs26agg9kSWIhdcfc=" crossorigin="anonymous"></script>
-    <%= javascript_packs_with_chunks_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_packs_with_chunks_tag 'application', defer: true %>
     <%= yield :head %>
   </head>
 

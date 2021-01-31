@@ -1,9 +1,11 @@
-require("@rails/ujs").start();
-require("turbolinks").start();
-require("@rails/activestorage").start();
-require("channels");
+import * as Ujs from "@rails/ujs";
+import * as ActiveStorage from "@rails/activestorage";
+import { Turbo } from "@hotwired/turbo-rails"
 
-require("alpinejs");
+import "channels";
+import "controllers";
+import "alpinejs";
+
 import '../stylesheets/tailwind.scss';
 import '../stylesheets/trix.scss';
 
@@ -12,3 +14,8 @@ import '../images/ipa-logo.png';
 import '../images/champ-brewing.png';
 import '../images/brewing-step-one.jpg';
 import '../images/brewing-step-two.jpeg';
+
+
+Ujs.start();
+ActiveStorage.start();
+window.Turbo = Turbo;
