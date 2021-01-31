@@ -13,7 +13,7 @@ module RotatorIpa
   # Main application. Powers all the magic
   class Application < Rails::Application
     config.time_zone = 'Central Time (US & Canada)'
-    config.load_defaults 6.0
+    config.load_defaults 6.1
     config.generators.assets = false
     config.generators.helper = false
     config.active_job.queue_adapter = :good_job

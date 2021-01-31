@@ -18,6 +18,7 @@ gem 'friendly_id'
 gem 'good_job'
 gem 'graphql'
 gem 'hiredis'
+gem 'hotwire-rails'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
@@ -26,7 +27,7 @@ gem 'puma'
 gem 'rack-cors'
 gem 'redis', '~> 4.0'
 gem 'scout_apm'
-gem 'turbolinks', '~> 5'
+
 gem 'webpacker', '6.0.0.beta.4'
 
 group :development, :test do
