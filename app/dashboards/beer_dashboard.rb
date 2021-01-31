@@ -61,12 +61,4 @@ class BeerDashboard < Administrate::BaseDashboard
   def display_resource(beer)
     beer.name
   end
-
-  def default_sorting_attribute
-    :start_date
-  end
-
-  def default_sorting_direction
-    :desc
-  end
 end
