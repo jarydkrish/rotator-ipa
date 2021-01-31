@@ -41,8 +41,7 @@ class BeerDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [:tilt_name, :name, :kind, :description, :recipe, :start_date, :bottle_date, :ready_date, :beer_daily_data_points,
-                     :beer_hourly_data_points].freeze
+  FORM_ATTRIBUTES = [:tilt_name, :name, :kind, :description, :recipe, :start_date, :bottle_date, :ready_date].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
