@@ -27,7 +27,7 @@ gem 'rack-cors'
 gem 'redis', '~> 4.0'
 gem 'scout_apm'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '5.2.1'
+gem 'webpacker', '6.0.0.beta.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
