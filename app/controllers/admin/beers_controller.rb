@@ -49,7 +49,7 @@ module Admin
     def default_sorting_attribute
       :start_date
     end
-  
+
     def default_sorting_direction
       :desc
     end
