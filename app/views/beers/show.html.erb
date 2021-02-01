@@ -27,7 +27,9 @@
     </div>
     <div class="max-w-prose mx-auto mb-32">
       <% if @beer.beer_hourly_data_points.size.positive? %>
-        <%= render partial: 'beers/show/beer_hourly_chart', locals: { beer: @beer } %>
+        <div data-controller="chart" data-chart-beer-value="<%= @beer.friendly_id %>">
+          <canvas data-chart-target="canvas" class="my-auto"></canvas>
+        </div>
       <% end %>
     </div>
     <div class="prose prose-lg text-gray-500 mx-auto">
