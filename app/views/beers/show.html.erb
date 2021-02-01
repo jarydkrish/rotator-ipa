@@ -23,12 +23,12 @@
       <%= render partial: 'beers/show/alcohol', locals: { beer: @beer } %>
     <% end %>
     <div class="max-w-prose mx-auto mb-32">
-      <%= render partial: 'beers/show/beer_chart', locals: { beer: @beer } %>
+      <%= render partial: 'beers/shared/beer_chart', locals: { beer: @beer } %>
     </div>
     <div class="max-w-prose mx-auto mb-32">
       <% if @beer.beer_hourly_data_points.size.positive? %>
-        <div data-controller="chart" data-chart-beer-value="<%= @beer.friendly_id %>">
-          <canvas data-chart-target="canvas" class="my-auto"></canvas>
+        <div data-controller="hourly-chart" data-hourly-chart-beer-value="<%= @beer.friendly_id %>">
+          <canvas data-hourly-chart-target="canvas" class="my-auto"></canvas>
         </div>
       <% end %>
     </div>

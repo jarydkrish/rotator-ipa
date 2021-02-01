@@ -1,114 +1,61 @@
-import axios from 'axios';
-import { Chart, LineController, LineElement, PointElement, LinearScale, TimeScale } from 'chart.js';
+import { Chart,  DoughnutController, ArcElement, Tooltip } from 'chart.js';
 import 'chartjs-adapter-moment';
 import { Controller } from 'stimulus';
 
-Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale);
+Chart.register(DoughnutController, ArcElement, Tooltip);
 
 export default class extends Controller {
   static values = {
-    beer: String,
+    timeBeforeBottle: Number,
+    timeUntilBottle: Number,
+    timeBeforeReady: Number,
+    timeUntilReady: Number,
+    bottled: Boolean,
+    brewed: Boolean,
   }
 
   static targets = ["canvas"]
 
-  initialize() {
-    this.loading = true;
-    this.error = false;
-    this.hourlyDataPoints = [];
-  }
-
   connect() {
-    console.log('connected');
-    this.load();
-  }
-
-  load() {
-    axios.get(`/api/beers/${this.beerValue}/hourly_data_points`)
-        .then((response) => {
-          console.log('loaded');
-          this.loading = false;
-          this.error = false;
-          this.hourlyDataPoints = response.data;
-          this.renderChart();
-        })
-        .catch((error) => {
-          this.loading = false;
-          this.hourlyDataPoints = [];
-          this.error = true;
-          console.error(error);
-        });
+    this.renderChart();
   }
 
   renderChart() {
-    const data = this.hourlyDataPoints;
-    console.log(data);
-    const datasets = {
-      datasets: [
-        {
-          label: 'Temperature',
-          data,
-          yAxisID: 'left-y-axis',
-          parsing: {
-            xAxisKey: 'created_at',
-            yAxisKey: 'temperature'
-          },
-          fill: false,
-          borderColor: 'forestgreen',
-          backgroundColor: 'forestgreen',
-        },
-        {
-          label: 'Specific Gravity',
-          data,
-          yAxisID: 'right-y-axis',
-          parsing: {
-            xAxisKey: 'created_at',
-            yAxisKey: 'specific_gravity'
-          },
-          fill: false,
-          borderColor: 'khaki',
-          backgroundColor: 'yellow'
-        }
+    const data = {
+      datasets: [{
+        data: [
+          this.timeBeforeBottleValue,
+          this.timeUntilBottleValue,
+          this.timeBeforeReadyValue,
+          this.timeUntilReadyValue,
+        ],
+        backgroundColor: [
+          'forestgreen',
+          'gainsboro',
+          'forestgreen',
+          'gainsboro'
+        ]
+      }],
+      // These labels appear in the legend and in the tooltips when hovering different arcs
+      labels: [
+        this.bottledValue ? 'Beer is bottled' : 'Days elapsed since start',
+        'Days until bottled',
+        this.brewedValue ? 'Beer is brewed' : 'Days elapsed since bottled',
+        'Days until conditioned',
       ],
     };
-
     const options = {
-      tooltips: {
-        mode: 'index'
+      rotation: -90,
+      circumference: 180,
+      legend: {
+        display: false,
       },
-      scales: {
-        'left-y-axis': {
-          beginAtZero: true,
-          suggestedMax: 120,
-          ticks: {
-            callback: function(value, index, values) {
-              return value + '° F';
-            }
-          }
-        },
-        'right-y-axis': {
-            type: 'linear',
-            position: 'right',
-            suggestedMin: 0.80,
-            suggestedMax: 1.20,
-            gridLines: {
-              display: false,
-            },
-        },
-        xAxes: {
-          type: 'time',
-          time: {
-            displayFormats: {
-              hour: { month: "short", day: "numeric", hour: "numeric" }
-            }
-          }
-        }
-      }
+      aspectRatio: 2.30,
     };
     const context = this.canvasTarget.getContext('2d');
     this.chart = new Chart(context, {
-      type: 'line',
-      data: datasets,
+      type: 'doughnut',
+      data: data,
       options: options
     });
   }
