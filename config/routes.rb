@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     resource :beer, only: [:create]
+    resource :hourly_data_points, only: [:index, :create]
+    resources :beers, only: [:index] do
+      resources :hourly_data_points, only: [:index]
+    end
   end
 
   namespace :admin do
