@@ -1,0 +1,11 @@
+<div
+  data-controller="chart"
+  data-chart-time-before-bottle-value="<%= beer.time_after_start_before_bottle.to_i %>"
+  data-chart-time-until-bottle-value="<%= beer.time_until_bottle.to_i %>"
+  data-chart-time-before-ready-value="<%= beer.time_after_bottle_before_ready.to_i %>"
+  data-chart-time-until-ready-value="<%= beer.time_until_ready.to_i %>"
+  data-chart-bottled-value="<%= beer.bottled? %>"
+  data-chart-brewed-value="<%= beer.brewed? %>"
+>
+  <canvas data-chart-target="canvas" class="my-auto"></canvas>
+</div>
