@@ -3,7 +3,7 @@
 require 'test_helper'
 
 module Api
-  class BeerControllerTest < ActionDispatch::IntegrationTest
+  class HourlyDataPointsControllerTest < ActionDispatch::IntegrationTest
     test 'creating a beer hourly data point' do
       beer = Beer.create(name: 'A beer.', tilt_name: 'A firstly, awesome beer.')
       hydrometer = Hydrometer.create(name: 'RED')
