@@ -17,6 +17,9 @@ Layout/LineLength:
   Max: 150
 Metrics/MethodLength:
   Max: 30
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'db/**/*.rb'
 Style/Documentation:
   Exclude:
     - 'db/**/*.rb'

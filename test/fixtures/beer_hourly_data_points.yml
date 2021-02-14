@@ -2,15 +2,21 @@
 
 hourly_data_point_one:
   beer: beer_one
+  hydrometer: tilt
   temperature: 9.99
   specific_gravity: 9.99
+  carboy: carboy_one
 
 hourly_data_point_two:
   beer: beer_one
+  hydrometer: tilt
   temperature: 9.99
   specific_gravity: 9.99
+  carboy: carboy_one
 
 hourly_data_point_three:
   beer: beer_one
+  hydrometer: tilt
   temperature: 9.99
   specific_gravity: 9.99
+  carboy: carboy_one
