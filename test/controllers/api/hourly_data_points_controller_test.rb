@@ -20,7 +20,6 @@ module Api
     test 'creating a beer hourly data point' do
       beer = beers(:beer_one)
       hydrometer = hydrometers(:tilt)
-      carboy = carboys(:carboy_one)
       current_hourly_data_points = BeerHourlyDataPoint.count
       params = {
         'Timepoint': '44073.0189925463',
