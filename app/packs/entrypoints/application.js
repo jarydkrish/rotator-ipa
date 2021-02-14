@@ -1,10 +1,9 @@
-import * as Ujs from "@rails/ujs";
-import * as ActiveStorage from "@rails/activestorage";
-import { Turbo } from "@hotwired/turbo-rails"
+import * as Ujs from '@rails/ujs';
+import * as ActiveStorage from '@rails/activestorage';
+import { Turbo } from '@hotwired/turbo-rails';
 
-import "channels";
-import "controllers";
-import "alpinejs";
+import 'channels';
+import 'controllers';
 
 import '../stylesheets/tailwind.scss';
 import '../stylesheets/trix.scss';
