@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_215607) do
+ActiveRecord::Schema.define(version: 2021_02_13_234333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -75,7 +75,9 @@ ActiveRecord::Schema.define(version: 2020_12_13_215607) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "hydrometer_id"
+    t.bigint "carboy_id"
     t.index ["beer_id"], name: "index_beer_hourly_data_points_on_beer_id"
+    t.index ["carboy_id"], name: "index_beer_hourly_data_points_on_carboy_id"
     t.index ["hydrometer_id"], name: "index_beer_hourly_data_points_on_hydrometer_id"
   end
 
@@ -93,6 +95,15 @@ ActiveRecord::Schema.define(version: 2020_12_13_215607) do
     t.index ["slug"], name: "index_beers_on_slug", unique: true
   end
 
+  create_table "carboys", force: :cascade do |t|
+    t.bigint "beer_id", null: false
+    t.bigint "hydrometer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["beer_id"], name: "index_carboys_on_beer_id"
+    t.index ["hydrometer_id"], name: "index_carboys_on_hydrometer_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -104,7 +115,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_215607) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "good_jobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "good_jobs", id: :uuid, default: -> { "public.gen_random_uuid()" }, force: :cascade do |t|
     t.text "queue_name"
     t.integer "priority"
     t.jsonb "serialized_params"
@@ -166,6 +177,9 @@ ActiveRecord::Schema.define(version: 2020_12_13_215607) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "beer_daily_data_points", "beers"
   add_foreign_key "beer_hourly_data_points", "beers"
+  add_foreign_key "beer_hourly_data_points", "carboys"
   add_foreign_key "beer_hourly_data_points", "hydrometers"
+  add_foreign_key "carboys", "beers"
+  add_foreign_key "carboys", "hydrometers"
   add_foreign_key "posts", "users"
 end
