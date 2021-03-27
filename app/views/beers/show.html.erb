@@ -29,7 +29,7 @@
       <% if @beer.carboys.size.positive? %>
         <% @beer.carboys.each.with_index do |carboy, index| %>
           <div class="px-8 mt-16 md:mt-0 w-full md:w-6/12">
-            <h4 class="text-center leading-5 font-medium text-gray-500 mb-4">Carboy #<%= index %></h4>
+            <h4 class="text-center leading-5 font-medium text-gray-500 mb-4">Carboy #<%= index + 1 %></h4>
             <div data-controller="hourly-chart" data-hourly-chart-beer-value="<%= @beer.friendly_id %>" data-hourly-chart-carboy-value="<%= carboy.id %>">
               <canvas data-hourly-chart-target="canvas" class="my-auto"></canvas>
             </div>
