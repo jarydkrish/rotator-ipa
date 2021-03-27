@@ -25,11 +25,16 @@
     <div class="max-w-prose mx-auto mb-32">
       <%= render partial: 'beers/shared/beer_chart', locals: { beer: @beer } %>
     </div>
-    <div class="max-w-prose mx-auto mb-32">
-      <% if @beer.beer_hourly_data_points.size.positive? %>
-        <div data-controller="hourly-chart" data-hourly-chart-beer-value="<%= @beer.friendly_id %>">
-          <canvas data-hourly-chart-target="canvas" class="my-auto"></canvas>
-        </div>
+    <div class="mx-auto mb-32 flex flex-row flex-wrap justify-center">
+      <% if @beer.carboys.size.positive? %>
+        <% @beer.carboys.each.with_index do |carboy, index| %>
+          <div class="px-8 mt-16 md:mt-0 w-full md:w-6/12">
+            <h4 class="text-center leading-5 font-medium text-gray-500 mb-4">Carboy #<%= index %></h4>
+            <div data-controller="hourly-chart" data-hourly-chart-beer-value="<%= @beer.friendly_id %>" data-hourly-chart-carboy-value="<%= carboy.id %>">
+              <canvas data-hourly-chart-target="canvas" class="my-auto"></canvas>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
     <div class="prose prose-lg text-gray-500 mx-auto">

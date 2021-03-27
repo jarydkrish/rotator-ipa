@@ -8,7 +8,7 @@ module Api
     before_action :find_or_create_resources, only: [:create]
 
     def index
-      render json: @hourly_data_points.to_json
+      render json: @hourly_data_points.order(created_at: :desc).to_json
     end
 
     def create

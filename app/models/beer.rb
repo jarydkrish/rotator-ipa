@@ -20,6 +20,16 @@ class Beer < ApplicationRecord
     end
   end
 
+  def hourly_chart_data_for_carboy(carboy)
+    beer_hourly_data_points.where(carboy: carboy).map do |data_point|
+      {
+        time: data_point.created_at,
+        temperature: data_point.temperature,
+        specific_gravity: data_point.specific_gravity
+      }
+    end
+  end
+
   def most_recent_daily_data_point
     @most_recent_daily_data_point ||= beer_daily_data_points.last
   end
