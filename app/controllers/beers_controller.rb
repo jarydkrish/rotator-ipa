@@ -11,7 +11,7 @@ class BeersController < ApplicationController
 
   def show
     @beer = Beer.friendly.find(params[:id])
-    @beers = @beers.order(start_date: :desc).first(3)
+    @beers = @beers.where.not(id: @beer.id).order(start_date: :desc).first(3)
     @title = @beer.name
   end
 
