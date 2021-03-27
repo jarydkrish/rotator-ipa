@@ -32,11 +32,6 @@ Problems getting everything setup? Check for the following gem problems
 
 We use linters for [static code analysis](https://en.wikipedia.org/wiki/Static_program_analysis). I would highly encourage you to consider using them for all coding projects, not just this one.
 
-You can use the following command to install our linters for [Atom, our preferred code editor](https://atom.io/):
-```bash
-apm install linter linter-rubocop
-```
-
 #### Rubocop
 We use [RuboCop](http://rubocop.readthedocs.io/en/latest/) as our ruby linter.
 
