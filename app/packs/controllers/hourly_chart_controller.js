@@ -8,6 +8,7 @@ Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale
 export default class extends Controller {
   static values = {
     beer: String,
+    carboy: Number,
   }
 
   static targets = ["canvas"]
@@ -23,7 +24,7 @@ export default class extends Controller {
   }
 
   load() {
-    axios.get(`/api/beers/${this.beerValue}/hourly_data_points`)
+    axios.get(`/api/beers/${this.beerValue}/hourly_data_points?carboy_id=${this.carboyValue}`)
         .then((response) => {
           this.loading = false;
           this.error = false;
