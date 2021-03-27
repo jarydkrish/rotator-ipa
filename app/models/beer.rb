@@ -13,9 +13,9 @@ class Beer < ApplicationRecord
   def hourly_chart_data
     beer_hourly_data_points.map do |data_point|
       {
-        'time': data_point.created_at,
-        'temperature': data_point.temperature,
-        'specific_gravity': data_point.specific_gravity
+        time: data_point.created_at,
+        temperature: data_point.temperature,
+        specific_gravity: data_point.specific_gravity
       }
     end
   end

@@ -9,12 +9,12 @@ module Api
       hydrometer = hydrometers(:tilt)
       current_hourly_data_points = BeerHourlyDataPoint.count
       params = {
-        'Timepoint': '44073.0189925463',
-        'Temp': '81.0',
-        'SG': '1.036',
-        'Beer': beer.tilt_name,
-        'Color': hydrometer.name,
-        'Comment': 'jarydkrishnan@gmail.com'
+        Timepoint: '44073.0189925463',
+        Temp: '81.0',
+        SG: '1.036',
+        Beer: beer.tilt_name,
+        Color: hydrometer.name,
+        Comment: 'jarydkrishnan@gmail.com'
       }
       post api_beer_url, params: params
       assert_response :success
@@ -23,12 +23,12 @@ module Api
 
     test 'will create a beer and hydrometer if never seen before' do
       params = {
-        'Timepoint': '44073.0189925463',
-        'Temp': '81.0',
-        'SG': '1.036',
-        'Beer': 'Some brand new beer',
-        'Color': 'BRIGHT_PINK',
-        'Comment': 'jarydkrishnan@gmail.com'
+        Timepoint: '44073.0189925463',
+        Temp: '81.0',
+        SG: '1.036',
+        Beer: 'Some brand new beer',
+        Color: 'BRIGHT_PINK',
+        Comment: 'jarydkrishnan@gmail.com'
       }
       post api_beer_url, params: params
       assert_response :success
