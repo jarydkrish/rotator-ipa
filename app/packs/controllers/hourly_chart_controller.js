@@ -14,7 +14,8 @@ export default class extends Controller {
   static targets = ["canvas"]
 
   initialize() {
-    this.loading = true;
+    this.pages = 1;
+    this.currentPage = 0;
     this.error = false;
     this.hourlyDataPoints = [];
   }
@@ -23,20 +24,32 @@ export default class extends Controller {
     this.load();
   }
 
-  load() {
-    axios.get(`/api/beers/${this.beerValue}/hourly_data_points?carboy_id=${this.carboyValue}`)
-        .then((response) => {
-          this.loading = false;
-          this.error = false;
-          this.hourlyDataPoints = response.data;
-          this.renderChart();
-        })
-        .catch((error) => {
-          this.loading = false;
-          this.hourlyDataPoints = [];
-          this.error = true;
-          console.error(error);
-        });
+  async load() {
+    try {
+      this.error = false;
+      await this.fetchPages();
+      this.renderChart();
+    } catch (error) {
+      this.error = true;
+      console.error(error);
+    }
+  }
+
+  async fetchPages() {
+    while(this.currentPage <= this.pages) {
+      this.currentPage += 1;
+      await this.fetchPage(this.currentPage);
+    }
+  }
+
+  async fetchPage(page) {
+    const response = await axios.get(`/api/beers/${this.beerValue}/hourly_data_points?carboy_id=${this.carboyValue}&page=${page}`)
+    const total = parseInt(response.headers['total']);
+    const perPage = parseInt(response.headers['per-page']);
+    if (total > 0 && perPage > 0) {
+      this.pages = Math.ceil(total / perPage);
+    }
+    this.hourlyDataPoints = [...this.hourlyDataPoints, ...response.data];
   }
 
   renderChart() {

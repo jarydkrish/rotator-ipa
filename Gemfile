@@ -9,6 +9,7 @@ gem 'rails', '~> 6.1'
 
 gem 'administrate'
 gem 'administrate-field-active_storage'
+gem 'api-pagination'
 gem 'aws-sdk-s3', require: false
 gem 'barnes'
 gem 'bcrypt', '~> 3.1.7'

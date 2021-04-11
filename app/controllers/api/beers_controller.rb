@@ -2,8 +2,7 @@
 
 module Api
   # Handles any beer posts
-  class BeersController < ApplicationController
-    skip_before_action :verify_authenticity_token
+  class BeersController < ApiController
     before_action :find_or_create_resources
 
     def create
