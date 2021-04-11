@@ -2,13 +2,12 @@
 
 module Api
   # Handles any beer hourly data points
-  class HourlyDataPointsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+  class HourlyDataPointsController < ApiController
     before_action :set_beer_hourly_data_points, only: [:index]
     before_action :find_or_create_resources, only: [:create]
 
     def index
-      render json: @hourly_data_points.order(created_at: :desc).to_json
+      paginate json: @hourly_data_points.order(created_at: :desc)
     end
 
     def create
