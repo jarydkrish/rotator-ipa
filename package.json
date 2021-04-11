@@ -2,6 +2,9 @@
   "name": "rotator_ipa",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "test": "jest --ci --coverage"
+  },
   "babel": {
     "presets": [
       "./node_modules/@rails/webpacker/package/babel/preset.js"
@@ -10,6 +13,21 @@
   "browserslist": [
     "defaults"
   ],
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "app/packs/controllers"
+    ],
+    "roots": [
+      "test/packs"
+    ],
+    "setupFiles": [
+      "./test/packs/setupTests.js"
+    ],
+    "testRegex": [
+      "\\.test\\.js"
+    ]
+  },
   "dependencies": {
     "@hotwired/turbo-rails": "^7.0.0-beta.5",
     "@rails/actioncable": "^6.1.1",
@@ -47,6 +65,9 @@
     "webpack-cli": "^4.2.0"
   },
   "devDependencies": {
+    "canvas": "^2.7.0",
+    "jest": "^26.6.3",
+    "mutationobserver-shim": "^0.3.7",
     "webpack-dev-server": "^3.11.2"
   }
 }
