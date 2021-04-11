@@ -36,7 +36,7 @@ export default class extends Controller {
   }
 
   async fetchPages() {
-    while(this.currentPage <= this.pages) {
+    while(this.currentPage < this.pages) {
       this.currentPage += 1;
       await this.fetchPage(this.currentPage);
     }
