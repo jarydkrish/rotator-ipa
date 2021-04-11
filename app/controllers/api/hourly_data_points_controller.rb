@@ -7,7 +7,7 @@ module Api
     before_action :find_or_create_resources, only: [:create]
 
     def index
-      paginate json: @hourly_data_points.order(created_at: :desc)
+      paginate json: @hourly_data_points.order(created_at: :asc)
     end
 
     def create
