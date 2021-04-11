@@ -36,7 +36,7 @@ export default class extends Controller {
   }
 
   async fetchPages() {
-    while(this.currentPage <= this.pages) {
+    while(this.currentPage < this.pages) {
       this.currentPage += 1;
       await this.fetchPage(this.currentPage);
     }
@@ -62,7 +62,7 @@ export default class extends Controller {
           yAxisID: 'left-y-axis',
           parsing: {
             xAxisKey: 'created_at',
-            yAxisKey: 'temperature'
+            yAxisKey: 'temperature',
           },
           fill: false,
           borderColor: 'forestgreen',
@@ -84,7 +84,7 @@ export default class extends Controller {
     };
 
     const options = {
-      tooltips: {
+      interaction: {
         mode: 'index'
       },
       scales: {
@@ -102,14 +102,32 @@ export default class extends Controller {
             position: 'right',
             suggestedMin: 0.80,
             suggestedMax: 1.20,
-            gridLines: {
+            grid: {
               display: false,
             },
         },
         xAxes: {
           type: 'time',
-        }
-      }
+        },
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+
+              if (label) {
+                  label += ': ';
+              }
+
+              if (context.parsed.y !== null) {
+                label += Number.parseFloat(context.parsed.y);
+              }
+              return label;
+            },
+          },
+        },
+      },
     };
     const context = this.canvasTarget.getContext('2d');
     this.chart = new Chart(context, {
