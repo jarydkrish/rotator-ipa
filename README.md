@@ -2,7 +2,7 @@
   <img src="https://rotatoripa.co/rotator-ipa-sharing-icon.png?v=1" alt="Rotator IPA"></img>
 </div>
 
-## Getting Started
+## Getting Started!
 
 ### Prerequisites
 Please install the following:
