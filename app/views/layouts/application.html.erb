@@ -25,10 +25,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_packs_with_chunks_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/50025e69ef.js" crossorigin="anonymous"></script>
-    <%= javascript_packs_with_chunks_tag 'application', defer: true %>
+    <%= javascript_pack_tag 'application', defer: true %>
     <%= yield :head %>
   </head>
 

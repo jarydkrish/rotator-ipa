@@ -14,10 +14,10 @@
   <title>
     <%= content_for(:title) %>
   </title>
-  <%= stylesheet_packs_with_chunks_tag 'application', media: 'all' %>
+  <%= stylesheet_pack_tag 'application', media: 'all' %>
   <%= render "stylesheet" %>
   <%= csrf_meta_tags %>
-  <%= javascript_packs_with_chunks_tag 'administrate', defer: true %>
+  <%= javascript_pack_tag 'administrate', defer: true %>
 </head>
 <body>
   <%= render "icons" %>
