@@ -6,7 +6,6 @@ module Api
     before_action :set_beers
 
     def index
-      @beers = Beer.all
       paginate json: @beers
     end
 
@@ -18,7 +17,7 @@ module Api
     private
 
     def set_beers
-      @beer = Beer.all
+      @beers = Beer.all
     end
   end
 end

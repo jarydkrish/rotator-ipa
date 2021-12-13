@@ -16,9 +16,8 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:registrations]
 
   namespace :api do
-    resource :beer, only: [:create]
     resource :hourly_data_points, only: [:index, :create]
-    resources :beers, only: [:index] do
+    resources :beers, only: [:index, :show] do
       resources :hourly_data_points, only: [:index]
     end
   end
