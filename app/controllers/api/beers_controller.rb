@@ -3,24 +3,22 @@
 module Api
   # Handles any beer posts
   class BeersController < ApiController
-    before_action :find_or_create_resources
+    before_action :set_beers
 
-    def create
-      @carboy.beer_hourly_data_points.create!(
-        beer: @beer,
-        hydrometer: @hydrometer,
-        temperature: params['Temp'],
-        specific_gravity: params['SG']
-      )
-      render json: { created: true }
+    def index
+      @beers = Beer.all
+      paginate json: @beers
+    end
+
+    def show
+      beer = @beers.find(params[:id])
+      render json: beer
     end
 
     private
 
-    def find_or_create_resources
-      @beer = Beer.where(tilt_name: params['Beer']).first_or_create
-      @hydrometer = Hydrometer.where(name: params['Color']).first_or_create
-      @carboy = Carboy.where(beer: @beer, hydrometer: @hydrometer).first_or_create
+    def set_beers
+      @beer = Beer.all
     end
   end
 end
