@@ -14,10 +14,9 @@
   <title>
     <%= content_for(:title) %>
   </title>
-  <%= stylesheet_pack_tag 'application', media: 'all' %>
   <%= render "stylesheet" %>
+  <%= stylesheet_link_tag "action_text" %>
   <%= csrf_meta_tags %>
-  <%= javascript_pack_tag 'administrate', defer: true %>
 </head>
 <body>
   <%= render "icons" %>
@@ -32,5 +31,6 @@
   </div>
 
   <%= render "javascript" %>
+  <%= javascript_include_tag "application", defer: true %>
 </body>
 </html>

@@ -28,3 +28,24 @@
 @import "components/search";
 
 @import "utilities/text-color";
+
+// This number was chosen fairly arbitrarily but seems like it might be reasonable. Adjust to taste.
+$administrate_mobile_threshold: 500px;
+
+.app-container {
+    display: block;
+}
+
+.navigation__link {
+    display: inline-block;
+}
+
+@media (min-width: $administrate_mobile_threshold) {
+    .app-container {
+        display: flex;
+    }
+
+    .navigation__link {
+        display: block;
+    }
+}

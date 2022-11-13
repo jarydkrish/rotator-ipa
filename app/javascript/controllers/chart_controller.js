@@ -1,5 +1,5 @@
 import { Chart,  DoughnutController, ArcElement, Tooltip } from 'chart.js';
-import 'chartjs-adapter-moment';
+import 'chartjs-adapter-luxon';
 import { Controller } from 'stimulus';
 
 Chart.register(DoughnutController, ArcElement, Tooltip);

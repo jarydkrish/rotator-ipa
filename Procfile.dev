@@ -1,0 +1,4 @@
+web: bin/rails server
+worker: good_job start
+js: yarn build --watch
+css: yarn build:css --watch

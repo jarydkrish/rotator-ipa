@@ -3,9 +3,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.1.2'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7'
 
 gem 'administrate'
 gem 'administrate-field-active_storage'
@@ -29,8 +29,6 @@ gem 'rack-cors'
 gem 'redis', '~> 4.0'
 gem 'scout_apm'
 
-gem 'webpacker', '6.0.0.beta.7'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -41,9 +39,8 @@ end
 group :development do
   gem 'dotenv-rails'
   gem 'listen', '~> 3.2'
+  gem 'rails-erd', '~> 1.7'
   gem 'solargraph'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 
@@ -54,3 +51,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers'
 end
+
+gem "jsbundling-rails", "~> 1.0"
+
+gem "cssbundling-rails", "~> 1.1"

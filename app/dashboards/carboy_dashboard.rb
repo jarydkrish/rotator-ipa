@@ -1,9 +1,6 @@
-# frozen_string_literal: true
+require "administrate/base_dashboard"
 
-require 'administrate/base_dashboard'
-
-# Dashboard for beer hourly datapoints
-class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
+class CarboyDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -12,13 +9,11 @@ class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     beer: Field::BelongsTo,
-    carboy: Field::BelongsTo,
     hydrometer: Field::BelongsTo,
+    beer_hourly_data_points: Field::HasMany,
     id: Field::Number,
-    temperature: Field::String.with_options(searchable: false),
-    specific_gravity: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,16 +21,32 @@ class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [:id, :beer, :hydrometer, :carboy, :temperature, :specific_gravity].freeze
+  COLLECTION_ATTRIBUTES = %i[
+    beer
+    hydrometer
+    beer_hourly_data_points
+    id
+  ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [:id, :beer, :hydrometer, :carboy, :temperature, :specific_gravity, :created_at, :updated_at].freeze
+  SHOW_PAGE_ATTRIBUTES = %i[
+    beer
+    hydrometer
+    beer_hourly_data_points
+    id
+    created_at
+    updated_at
+  ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [:beer, :carboy, :hydrometer, :temperature, :specific_gravity].freeze
+  FORM_ATTRIBUTES = %i[
+    beer
+    hydrometer
+    beer_hourly_data_points
+  ].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
@@ -47,14 +58,12 @@ class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {
-    beer: ->(resources) { resources.where(beer: beer) }
-  }.freeze
+  COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how beer hourly data points are displayed
+  # Overwrite this method to customize how carboys are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(beer_hourly_data_point)
-    "#{beer_hourly_data_point.beer.name} #{beer_hourly_data_point.created_at}"
-  end
+  # def display_resource(carboy)
+  #   "Carboy ##{carboy.id}"
+  # end
 end
