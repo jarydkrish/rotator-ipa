@@ -14,6 +14,7 @@ gem 'aws-sdk-s3', require: false
 gem 'barnes'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'cssbundling-rails', '~> 1.1'
 gem 'devise'
 gem 'friendly_id'
 gem 'good_job'
@@ -22,6 +23,7 @@ gem 'hiredis'
 gem 'hotwire-rails'
 gem 'image_processing'
 gem 'jbuilder'
+gem 'jsbundling-rails', '~> 1.0'
 gem 'kaminari'
 gem 'pg', '< 2.0'
 gem 'puma'
@@ -33,6 +35,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop', require: false
+  gem 'rubocop-graphql', require: false
   gem 'rubocop-rails', require: false
 end
 
@@ -51,7 +54,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers'
 end
-
-gem "jsbundling-rails", "~> 1.0"
-
-gem "cssbundling-rails", "~> 1.1"

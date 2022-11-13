@@ -33,11 +33,11 @@ module Api
       @hourly_data_points = BeerHourlyDataPoint.all
       if params[:beer_id]
         beer = Beer.friendly.find(params[:beer_id])
-        @hourly_data_points = @hourly_data_points.where(beer: beer)
+        @hourly_data_points = @hourly_data_points.where(beer:)
       end
       if params[:carboy_id]
         carboy = Carboy.find(params[:carboy_id])
-        @hourly_data_points = @hourly_data_points.where(carboy: carboy)
+        @hourly_data_points = @hourly_data_points.where(carboy:)
       end
     end
     # rubocop:enable Style/GuardClause

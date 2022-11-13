@@ -17,8 +17,8 @@ class DailyBeerSummaryJob < ApplicationJob
   private
 
   def daily_summary(beer, day, hourly_data)
-    daily_data = BeerDailyDataPoint.where(beer: beer, date: day).first_or_initialize
-    beer_hourly_data = hourly_data.where(beer: beer)
+    daily_data = BeerDailyDataPoint.where(beer:, date: day).first_or_initialize
+    beer_hourly_data = hourly_data.where(beer:)
     save_daily_summary_update(daily_data, beer_hourly_data)
   end
 

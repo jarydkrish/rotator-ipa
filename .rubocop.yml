@@ -1,7 +1,16 @@
-require: rubocop-rails
+require:
+  - rubocop-graphql
+  - rubocop-rails
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*.rb'
+GraphQL/FieldDescription:
+  Enabled: false
+GraphQL/ObjectDescription:
+  Enabled: false
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Metrics/AbcSize:

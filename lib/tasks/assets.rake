@@ -8,7 +8,7 @@ namespace :assets do
   end
 end
 
-skip_clean = ['no', 'false', 'n', 'f'].include?(ENV['WEBPACKER_PRECOMPILE'])
+skip_clean = ['no', 'false', 'n', 'f'].include?(ENV.fetch('WEBPACKER_PRECOMPILE', nil))
 
 unless skip_clean
   if Rake::Task.task_defined?('assets:clean')

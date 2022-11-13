@@ -53,7 +53,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+  config.cache_store = :redis_cache_store, { url: ENV.fetch('REDIS_URL', nil) }
 
   # Cache when using action mailer
   config.action_mailer.perform_caching = false
@@ -61,7 +61,7 @@ Rails.application.configure do
   # Action mailer configuration
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {
-    host: ENV.fetch('APP_URL', "#{ENV['HEROKU_APP_NAME']}.herokuapp.com")
+    host: ENV.fetch('APP_URL', "#{ENV.fetch('HEROKU_APP_NAME', nil)}.herokuapp.com")
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

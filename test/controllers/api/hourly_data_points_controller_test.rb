@@ -47,7 +47,7 @@ module Api
       assert_response :success
       beer = Beer.where(tilt_name: 'Some brand new beer').first
       hydrometer = Hydrometer.where(name: 'BRIGHT_PINK').first
-      carboy = Carboy.where(beer: beer, hydrometer: hydrometer).first
+      carboy = Carboy.where(beer:, hydrometer:).first
       assert_not_nil beer
       assert_not_nil carboy
       assert_not_nil hydrometer

@@ -48,7 +48,7 @@ class BeerHourlyDataPointDashboard < Administrate::BaseDashboard
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
   COLLECTION_FILTERS = {
-    beer: ->(resources) { resources.where(beer: beer) }
+    beer: ->(resources) { resources.where(beer:) }
   }.freeze
 
   # Overwrite this method to customize how beer hourly data points are displayed
