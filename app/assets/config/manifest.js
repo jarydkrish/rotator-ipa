@@ -6,6 +6,6 @@
 //= link application.css
 
 //= link brewing-step-one.jpg
-//= link brewing-step-two.jpeg
+//= link brewing-step-two.jpg
 //= link champ-brewing.png
 //= link ipa-logo.png
