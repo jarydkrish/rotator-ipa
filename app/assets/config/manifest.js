@@ -3,6 +3,7 @@
 //= link action_text.css
 
 //= link application.js
+//= link application.js.map
 //= link application.css
 
 //= link brewing-step-one.jpg

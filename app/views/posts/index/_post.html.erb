@@ -27,9 +27,9 @@
         <div class="flex-shrink-0">
           <a href="<%= post_path(post) %>">
             <% if post.user.avatar.present? %>
-              <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]), class: 'h-10 w-10 rounded-full' %>
+              <%= image_tag post.user.avatar.variant(resize_to_limit: [100, 100]), class: 'h-10 w-10 rounded-full', alt: post.user.name %>
             <% else %>
-              <img class="h-10 w-10 rounded-full" src="https://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest post.user.email %>" alt="">
+              <img class="h-10 w-10 rounded-full" src="https://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest post.user.email %>" alt="<%= post.user.name %>">
             <% end %>
           </a>
         </div>

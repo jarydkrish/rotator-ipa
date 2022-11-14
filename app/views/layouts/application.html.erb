@@ -28,12 +28,12 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/50025e69ef.js" crossorigin="anonymous"></script>
     <%= yield :head %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "action_text", "data-turbo-track": "reload" %>
   </head>
 
   <body>
     <%= yield %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, async: true %>
   </body>
 </html>

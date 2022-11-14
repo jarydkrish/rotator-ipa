@@ -28,7 +28,7 @@ gem 'kaminari'
 gem 'pg', '< 2.0'
 gem 'puma'
 gem 'rack-cors'
-gem 'redis', '~> 4.0'
+gem 'redis'
 gem 'scout_apm'
 
 group :development, :test do
