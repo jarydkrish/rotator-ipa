@@ -5,9 +5,9 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 'bin/*'
-    - 'db/**/*.rb'
-    - 'vendor/**/*.rb'
+    - bin/**/*
+    - db/**/*
+    - vendor/bundle/**/*
 GraphQL/FieldDescription:
   Enabled: false
 GraphQL/ObjectDescription:
@@ -16,24 +16,24 @@ Layout/EmptyLineAfterGuardClause:
   Enabled: false
 Metrics/AbcSize:
   Exclude:
-    - 'db/**/*.rb'
-    - 'test/**/*.rb'
+    - db/**/*.rb
+    - test/**/*.rb
 Metrics/BlockLength:
   Max: 80
   Exclude:
     - '**/*.rake'
-    - 'test/**/*.rb'
+    - test/**/*.rb
 Layout/LineLength:
   Max: 150
 Metrics/MethodLength:
   Max: 30
 Rails/SkipsModelValidations:
   Exclude:
-    - 'db/**/*.rb'
+    - db/**/*.rb
 Style/Documentation:
   Exclude:
-    - 'db/**/*.rb'
-    - 'test/**/*.rb'
+    - db/**/*.rb
+    - test/**/*.rb
 Style/WordArray:
   EnforcedStyle: brackets
 Style/RegexpLiteral:
