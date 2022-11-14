@@ -16,6 +16,7 @@ module RotatorIpa
     config.load_defaults 6.1
     config.generators.assets = false
     config.generators.helper = false
+    config.assets.css_compressor = nil
     config.active_job.queue_adapter = :good_job
   end
 end
