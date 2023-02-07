@@ -19,5 +19,8 @@
 		}
 	},
 	// Forward ports to make them available
-	"forwardPorts": [3000, 5432, 6379]
+	"forwardPorts": [3000, 5432, 6379],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": ".devcontainer/post-create-commands.sh"
 }
