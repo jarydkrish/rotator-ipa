@@ -1,2 +1,0 @@
-CREATE USER codespace CREATEDB;
-CREATE DATABASE codespace WITH OWNER codespace;
