@@ -17,6 +17,6 @@
 	// Forward ports to make them available
 	"forwardPorts": [3000, 5432, 6379],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postAttachCommand": "nvm install $(cat .node-version) && bundle install && yarn install"
+	// Use 'postStartCommand' to run commands after the container is created.
+	"postStartCommand": "nvm install $(cat .node-version) && bundle install && yarn install"
 }
