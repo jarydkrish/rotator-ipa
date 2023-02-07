@@ -18,5 +18,5 @@
 	"forwardPorts": [3000, 5432, 6379],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": ". $NVM_DIR/nvm.sh && nvm install $(cat .node-version) && bundle install && yarn install"
+	"postCreateCommand": ".devcontainer/boot.sh"
 }
