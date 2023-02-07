@@ -1,26 +1,9 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
 	"dockerComposeFile": "docker-compose.yml",
-	"features": {
-		"ghcr.io/devcontainers/features/sshd:1": {},
-		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "libpq-dev, libvips" // For pg gem
-		},
-		"ghcr.io/devcontainers/features/git:1": {
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers/features/ruby:1": {
-			"version": "3.1.2"
-		},
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "18.12.1"
-		},
-		"ghcr.io/devcontainers/features/common-utils:1": {
-			"installZsh": true,
-			"installOhMyZsh": true,
-			"configureZshAsDefaultShell": true
-		}
-	},
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Features to add if you want them
+	// "features": {},
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -29,6 +12,10 @@
 			"extensions": [
 				"rebornix.Ruby"
 			]
+		},
+		"args": {
+			"VARIANT": "2",
+			"NODE_VERSION": "18.12.1" // Set to "none" to skip Node.js installation
 		}
 	},
 	// Forward ports to make them available
