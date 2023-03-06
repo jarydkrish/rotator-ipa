@@ -5,7 +5,7 @@ class BeersController < ApplicationController
   before_action :set_beers
 
   def index
-    @beers = @beers.page(params[:page])
+    @beers = @beers.page(params[:page]).per(12)
     @title = 'Beers at Rotator IPA'
   end
 

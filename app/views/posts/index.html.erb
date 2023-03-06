@@ -29,6 +29,19 @@
   </div>
 </div>
 
-<%= paginate @posts %>
+<div class="flex justify-center">
+  <% unless @posts.first_page? %>
+    <%= link_to_previous_page @posts, 'Previous Page' %>
+  <% end %>
+  <% unless @posts.last_page? %>
+    <%= link_to_next_page @posts, 'Next Page' %>
+  <% end %>
+</div>
+
+<div class="flex justify-center mt-4">
+  <span>
+    <%= page_entries_info @posts %>
+  </span>
+</div>
 
 <%= render partial: 'pages/footer' %>

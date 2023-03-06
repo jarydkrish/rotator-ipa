@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :set_posts
 
   def index
-    @posts = @posts.page(params[:page])
+    @posts = @posts.page(params[:page]).per(12)
     @title = 'Rotator IPA Blog'
   end
 
