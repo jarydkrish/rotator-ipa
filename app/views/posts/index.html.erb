@@ -33,6 +33,9 @@
   <% unless @posts.first_page? %>
     <%= link_to_previous_page @posts, 'Previous Page' %>
   <% end %>
+  <% if @posts.current_page < @posts.total_pages && @posts.current_page > 1 %>
+    <span class="mx-2">|</span>
+  <% end %>
   <% unless @posts.last_page? %>
     <%= link_to_next_page @posts, 'Next Page' %>
   <% end %>

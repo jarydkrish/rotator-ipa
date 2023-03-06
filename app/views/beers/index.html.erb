@@ -34,6 +34,9 @@
   <% unless @beers.first_page? %>
     <%= link_to_previous_page @beers, 'Previous Page' %>
   <% end %>
+  <% if @beers.current_page < @beers.total_pages && @beers.current_page > 1 %>
+    <span class="mx-2">|</span>
+  <% end %>
   <% unless @beers.last_page? %>
     <%= link_to_next_page @beers, 'Next Page' %>
   <% end %>
