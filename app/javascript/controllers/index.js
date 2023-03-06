@@ -1,8 +1,7 @@
 // Load all the channels within this directory and all subdirectories.
 // Channel files must be named *_controller.js.
 
-import { Application } from 'stimulus';
-import { definitionsFromContext } from 'stimulus/webpack-helpers';
+import { Application } from '@hotwired/stimulus';
 import { Dropdown } from 'tailwindcss-stimulus-components';
 
 import ChartController from './chart_controller';

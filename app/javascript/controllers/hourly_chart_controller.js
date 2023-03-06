@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Chart, LineController, LineElement, PointElement, LinearScale, TimeScale, Tooltip } from 'chart.js';
 import 'chartjs-adapter-luxon';
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale, Tooltip);
 
