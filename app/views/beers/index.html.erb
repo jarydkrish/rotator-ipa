@@ -29,6 +29,22 @@
   </div>
 </div>
 
-<%= paginate @beers %>
+
+<div class="flex justify-center">
+  <% unless @beers.first_page? %>
+    <%= link_to_previous_page @beers, 'Previous Page' %>
+  <% end %>
+  <% unless @beers.last_page? %>
+    <%= link_to_next_page @beers, 'Next Page' %>
+  <% end %>
+</div>
+
+<div class="flex justify-center">
+  <span>
+    <%= page_entries_info @beers %>
+  </span>
+</div>
+
+
 
 <%= render partial: 'pages/footer' %>
