@@ -16,6 +16,7 @@
   </title>
   <%= render "stylesheet" %>
   <%= stylesheet_link_tag "action_text" %>
+  <%= javascript_include_tag "application", defer: true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -31,6 +32,5 @@
   </div>
 
   <%= render "javascript" %>
-  <%= javascript_include_tag "application", defer: true %>
 </body>
 </html>
