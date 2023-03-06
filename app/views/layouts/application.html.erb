@@ -30,10 +30,10 @@
     <%= yield :head %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "action_text", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, async: true %>
   </head>
 
   <body>
     <%= yield %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true, async: true %>
   </body>
 </html>

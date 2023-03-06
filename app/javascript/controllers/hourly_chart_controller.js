@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Chart, LineController, LineElement, PointElement, LinearScale, TimeScale, Tooltip } from 'chart.js';
 import 'chartjs-adapter-luxon';
-import { Controller } from 'stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 Chart.register(LineController, LineElement, PointElement, LinearScale, TimeScale, Tooltip);
 
@@ -11,7 +11,7 @@ export default class extends Controller {
     carboy: Number,
   }
 
-  static targets = ["canvas"]
+  static targets = ["canvas", "loading"]
 
   initialize() {
     this.pages = 1;
@@ -28,7 +28,6 @@ export default class extends Controller {
     try {
       this.error = false;
       await this.fetchPages();
-      this.renderChart();
     } catch (error) {
       this.error = true;
       console.error(error);
@@ -39,6 +38,7 @@ export default class extends Controller {
     while(this.currentPage < this.pages) {
       this.currentPage += 1;
       await this.fetchPage(this.currentPage);
+      this.renderOrUpdateChart();
     }
   }
 
@@ -52,7 +52,25 @@ export default class extends Controller {
     this.hourlyDataPoints = [...this.hourlyDataPoints, ...response.data];
   }
 
+  renderOrUpdateChart() {
+    if (this.chart) {
+      this.updateChart();
+    } else {
+      this.renderChart();
+    }
+  }
+
+  updateChart() {
+    this.chart.data.datasets[0].data = this.hourlyDataPoints;
+    this.chart.data.datasets[1].data = this.hourlyDataPoints;
+    this.chart.update();
+  }
+
   renderChart() {
+    if (this.hasLoadingTarget) {
+      this.loadingTarget.remove();
+    }
+
     const data = this.hourlyDataPoints;
     const datasets = {
       datasets: [

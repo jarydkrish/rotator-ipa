@@ -20,7 +20,6 @@ gem 'friendly_id'
 gem 'good_job'
 gem 'graphql'
 gem 'hiredis'
-gem 'hotwire-rails'
 gem 'image_processing'
 gem 'jbuilder'
 gem 'jsbundling-rails', '~> 1.0'
@@ -30,6 +29,8 @@ gem 'puma'
 gem 'rack-cors'
 gem 'redis'
 gem 'scout_apm'
+gem 'stimulus-rails'
+gem 'turbo-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
