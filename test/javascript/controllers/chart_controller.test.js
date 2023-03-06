@@ -1,4 +1,4 @@
-import { Application } from "stimulus";
+import { Application } from "@hotwired/stimulus";
 import ChartController from "chart_controller";
 
 describe('ChartController', () => {
