@@ -3,8 +3,8 @@
 module Types
   # Query Root
   class QueryType < Types::BaseObject
-    add_field(GraphQL::Types::Relay::NodeField)
-    add_field(GraphQL::Types::Relay::NodesField)
+    include GraphQL::Types::Relay::HasNodeField
+    include GraphQL::Types::Relay::HasNodesField
 
     field :beers,
           Types::BeerType.connection_type,
