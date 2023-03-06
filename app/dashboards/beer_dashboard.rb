@@ -53,7 +53,10 @@ class BeerDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {
+    name: ->(resources) { resources.where('name ILIKE ?', "%#{params[:name]}%") },
+    kind: ->(resources) { resources.where('kind ILIKE ?', "%#{params[:kind]}%") }
+  }.freeze
 
   # Overwrite this method to customize how beers are displayed
   # across all pages of the admin dashboard.

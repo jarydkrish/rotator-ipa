@@ -46,7 +46,7 @@ jobs:
         bundle exec rails db:setup
         bundle exec rails db:migrate
     - name: Setup assets cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           public/packs-test
