@@ -49,3 +49,12 @@ input[type="submit"],
   color: $blue;
   margin-bottom: $base-spacing;
 }
+
+.button--danger {
+  background-color: $red;
+  color: $white;
+
+  &:hover {
+    background-color: mix($black, $red, 20%);
+  }
+}
